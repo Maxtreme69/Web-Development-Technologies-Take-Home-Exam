@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Final_Exam.Models.ViewModels.CourseInstructorViewModel2>
+@*@model IEnumerable<JoinAndViewModel.Models.StudentViewModel>
+*@<table class="table table-striped">
+    <tr>
+        <th>Course</th>
+        <th>Instructor</th>
+    </tr>
+    <div class="table table-striped">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.course2.Title</td>
+                <td>@item.instructor2.FirstMidName</td>
+            </tr>
+        }
+    </div>
+</table>

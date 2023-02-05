@@ -1,0 +1,68 @@
+﻿@model Final_Exam.Models.ViewModels.CourseInstructorViewModel
+      
+@{  
+     ViewBag.Title = "Index";  
+}  
+
+<h2>Course Details</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => Model.Courses.FirstOrDefault().Title)</th>        
+        </tr>
+    </thead>
+    <tbody>
+        
+    @foreach (var item in Model.Courses) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>      
+            </tr>  
+    } 
+    </tbody>
+</table>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => Model.Instructors.FirstOrDefault().FirstMidName)</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model.Instructors)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstMidName)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(m => Model.Students.FirstOrDefault().FirstMidName)</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model.Students)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstMidName)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+

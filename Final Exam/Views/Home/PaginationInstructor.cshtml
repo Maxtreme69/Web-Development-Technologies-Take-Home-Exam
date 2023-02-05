@@ -1,0 +1,98 @@
+﻿@using X.PagedList.Mvc.Core
+@using X.PagedList.Web.Common
+@using X.PagedList
+
+@model IPagedList<Instructor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+   
+            <th>
+                <td>Title</td>
+            </th>
+
+            <th>
+                <td>Hire Date</td>
+            </th>
+
+            <th>
+                <td>First Name</td>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HireDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstMidName)
+                </td>
+                <td>
+
+                    <a asp-action="Edit" asp-route-id="@item.">Edit</a> |
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@*@Html.PagedListPager(Model, page => Url.Action("Test", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }), new PagedListRenderOptions { LinkToFirstPageFormat = "<<", LinkToPreviousPageFormat = "<", LinkToNextPageFormat = ">", LinkToLastPageFormat = ">>" })
+*@
+@Html.PagedListPager(Model, page => Url.Action("PaginationInstructor", new { page }),
+    new PagedListRenderOptions {
+        LiElementClasses = new[] { "page-item" },
+        PageClasses = new[] { "page-Link" }
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+@*<nav aria-label="Page navigation">
+  <ul class="pagination">
+    @if (Model.HasPreviousPage)
+    {
+        <li class="page-item">
+            <a class="page-link" href="@Url.Action("Index", new { page = Model.PageIndex - 1 })" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+            </a>
+        </li>
+    }
+    else
+    {
+        <li class="page-item disabled">
+            <span class="page-link">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+            </span>
+        </li>
+    }
+    @if (Model.HasNextPage)
+    {
+        <li class="page-item">
+            <a class="page-link" href="@Url.Action("Index", new { page = Model.PageIndex + 1 })" aria-label="Next">
+                <span aria
+*@
